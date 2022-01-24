@@ -11,8 +11,6 @@ plugins {
     id 'java-library'
 }
 
-version = scmVersion.version
-
 repositories {
     // Use jcenter for resolving dependencies.
     // You can declare any Maven/Ivy/file repository here.
@@ -33,7 +31,13 @@ dependencies {
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.3.1'
 }
 
-
+jar {
+    manifest {
+        attributes(
+                'Main-Class': 'caesars/cipher/Main'
+        )
+    }
+}
 
 test {
 	useJUnitPlatform()
